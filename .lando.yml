@@ -1,0 +1,5 @@
+name: hny
+recipe: lamp
+config:
+  php: '8.2'
+  database: mysql

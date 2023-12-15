@@ -47,6 +47,7 @@
     const ctx = canvas.getContext('2d');
     const timerElement = document.getElementById('timer');
     const scoreElement = document.getElementById('score');
+    var timeout = null;
 
     const pacMan = {
       x: 50,
@@ -213,7 +214,7 @@
         resetGame();
       } else {
         timer--;
-        setTimeout(updateTimer, 1000);
+        timeout = setTimeout(updateTimer, 1000);
       }
     }
 
@@ -226,6 +227,7 @@
       timer = 30;
       initializePellets();
       initializeGhosts();
+      clearTimeout(timeout);
       updateTimer();
       scoreElement.textContent = 'Score: ' + score;
     }
